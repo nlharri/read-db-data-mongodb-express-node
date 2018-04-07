@@ -100,20 +100,17 @@ db.todolist.insertOne({description: 'Get money from ATM', details: '100 USD'})
 
 ### Express app creation
 
-In this step we will create an express app.
-For this I will use the `server` directory.
+In this step we will create an express app. For this we need a new directory.
 We initialize the content (actually the `package.json` file) with npm.
 
 ```
-mkdir server
-cd server
 npm init -y
 ```
 
-We need to install Express by issuing the following command. `--save` will save the dependency to package.json. We will also install `mongoose` which is a MongoDB object modeling tool designed to work in an asynchronous environment.
+We need to install Express by issuing the following command. `--save` will save the dependency to package.json. We will also install `mongodb` which is the official MongoDB driver for Node.js.
 
 ```
-npm install --save express mongoose
+npm install --save express mongodb
 ```
 
 ### Express server implementation: without db read
@@ -134,7 +131,7 @@ app.get('/', (req, res) => {res.send('Hello World!')})
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 ```
 
-The app can be run by issuing the following command from the `server` directory:
+The app can be run by issuing the following command:
 ```
 node index.js
 ```
