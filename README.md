@@ -116,7 +116,7 @@ We need to install Express by issuing the following command. `--save` will save 
 npm install --save express mongoose
 ```
 
-### Express server implementation - without db read
+### Express server implementation: without db read
 
 Create index.js:
 
@@ -141,8 +141,29 @@ node index.js
 
 And then in the web browser enter `localhost:3000` to the URL.
 
-### Express server implementation - implementing db read using mongoose
+### Express server implementation: implementing db read using mongoose
 
+For this we need to enhance index.js. The final code looks like the following.
+```
+var express = require('express');
+// Include mongoose in the project
+var mongoose = require('mongoose');
+var app = express();
+
+// Connect to the tododb database
+mongoose.connect('mongodb://localhost/tododb');
+
+// We would like to get notified if we are connected to the db or if the connection failed.
+mongoose.connection.on('error', function(err) {
+  console.log('mongoose connection error: ' + err);
+}
+mongoose.connection.once('error', function(err) {
+  console.log('mongoose connection error: ' + err);
+}
+
+app.get('/', (req, res) => {res.send('Hello World!')})
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
+```
 
 
 ## What are Future Plans for this Project?
