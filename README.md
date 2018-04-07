@@ -1,7 +1,7 @@
-# Reading MongoDB database
+# Reading from MongoDB database
 
 ## What is this?
-This is a tutorial and example app for which reads data from a MongoDB database. The app is using MongoDB, Express.js and Node.js
+This is a tutorial and an example app which reads data from a MongoDB database. The app is using MongoDB, Express.js and Node.js
 
 ### Technologies and frameworks
 MongoDB is a free and open-source cross-platform document-oriented NoSQL database program, which uses JSON-like documents with schemas.
@@ -138,7 +138,7 @@ node index.js
 
 And then in the web browser enter `localhost:3000` to the URL.
 
-### Express server implementation: implementing db read using mongoose
+### Express server implementation: implementing db read using mongodb node.js driver
 
 For this we need to enhance index.js. The final code looks like the following. Please see the comments.
 
