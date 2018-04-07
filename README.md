@@ -100,7 +100,6 @@ db.todolist.insertOne({description: 'Get money from ATM', details: '100 USD'})
 
 ### Express app creation
 
-#### Initialize server directory and install express
 In this step we will create an express app.
 For this I will use the `server` directory.
 We initialize the content (actually the `package.json` file) with npm.
@@ -117,7 +116,7 @@ We need to install Express by issuing the following command. `--save` will save 
 npm install --save express mongoose
 ```
 
-#### Server implementation - without db read
+### Express server implementation - without db read
 
 Create index.js:
 
@@ -142,7 +141,9 @@ node index.js
 
 And then in the web browser enter `localhost:3000` to the URL.
 
-#### Server implementation - implementing db read using mongoose
+### Express server implementation - implementing db read using mongoose
+
+
 
 ## What are Future Plans for this Project?
 Further development plans:
