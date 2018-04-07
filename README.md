@@ -23,7 +23,7 @@ mv mongodb-osx-ssl-x86_64-3.6.3 mongodb
 ```
 
 MongoDB (`mongod`) defaults the database location to `/data/db/`.
-Let's create this directory, and change its permissions for our username (`id -un` gets the username):
+Let's create this directory, and change its owner (`id -un` gets the username):
 
 ```
 sudo mkdir -p /data/db
@@ -33,13 +33,13 @@ sudo chown -R `id -un` /data/db
 Now we can start the MongoDB server (`mongod`):
 ```
 cd ~
-~/mongodb/bin/mongod
+./mongodb/bin/mongod
 ```
 
 ### Data preparation
 In a different shell window we need to start the MongoDB shell (`mongo`).
 ```
-~/mongodb/bin/mongo
+./mongodb/bin/mongo
 ```
 
 In the MongoDB shell we can issue commands to the mongodb server to manipulate data in the database.
