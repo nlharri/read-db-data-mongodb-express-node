@@ -42,12 +42,60 @@ In a different shell window we need to start the MongoDB shell (`mongo`).
 ```
 
 In the MongoDB shell we can issue commands to the mongodb server to manipulate data in the database.
+
+MongoDB stores data records in collections and the collections in databases. 
 In this step we will create a new database called `tododb`. For this we will use the `use` statement.
 
 ```
 use tododb
 ```
 
+(The shell will return `switched to db tododb`.)
+
+We will create a new collection todolist in this `tododb` database, and a new document in this todolist collection. The following command will create the collection as well as the new document.
+
+```
+db.todolist.insertOne({description: 'Register for the marathon', details: 'it must be done until 4.7.2018'})
+```
+
+The shell returns something like the following:
+
+```
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("5ac8fbc723f00907d3d1be99")
+}
+```
+
+This means the document was created successfully. You can query this by the following command:
+```
+db.todolist.find()
+```
+
+Result:
+```
+{ "_id" : ObjectId("5ac8fbc723f00907d3d1be99"), "description" : "Register for the marathon", "details" : "it must be done until 4.7.2018" }
+```
+
+Or in a formatted way:
+```
+db.todolist.find().pretty()
+```
+
+Result:
+```
+{
+	"_id" : ObjectId("5ac8fbc723f00907d3d1be99"),
+	"description" : "Register for the marathon",
+	"details" : "it must be done until 4.7.2018"
+}
+```
+
+Let's add another entry to the `todolist`:
+
+```
+db.todolist.insertOne({description: 'Get money from ATM', details: '100 USD'})
+```
 
 
 ### Express app creation
@@ -63,26 +111,13 @@ cd server
 npm init -y
 ```
 
-We need to install Express by issuing the following command. `--save` will save the dependency to package.json.
+We need to install Express by issuing the following command. `--save` will save the dependency to package.json. We will also install `mongoose` which is a MongoDB object modeling tool designed to work in an asynchronous environment.
 
 ```
-npm install --save express
+npm install --save express mongoose
 ```
 
-#### Additional packages
-We also need additional packages.
-
-```
-npm install --save body-parser mongoose morgan babel-preset-es2015-node6 source-map-support 
-```
-
-Detailed info about these ones:
-  * `body-parser` is a Node.js body parsing middleware. It reads a form's input and stores it as a javascript object accessible through req.body.
-  * `morgan` is a HTTP request logger middleware for node.js
-  * `babel-preset-es2015-node6` makes Node.js fully ES2015 compatible.
-  * `source-map-support` a module which provides source map support for stack traces in node via the V8 stack trace API. It uses the source-map module to replace the paths and line numbers of source-mapped files with their original paths and line numbers.
-
-#### Server implementation
+#### Server implementation - without db read
 
 Create index.js:
 
@@ -90,7 +125,7 @@ Create index.js:
 touch index.js
 ```
 
-The implementation of the server looks like the following:
+The implementation of the server looks like the following. This needs to be put to `index.js`
 
 ```javascript
 var express = require('express');
@@ -99,3 +134,18 @@ var app = express();
 app.get('/', (req, res) => {res.send('Hello World!')})
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 ```
+
+The app can be run by issuing the following command from the `server` directory:
+```
+node index.js
+```
+
+And then in the web browser enter `localhost:3000` to the URL.
+
+#### Server implementation - implementing db read using mongoose
+
+## What are Future Plans for this Project?
+Further development plans:
+  * Implementing a REST API to query and change the db data
+  * Using React to display TODO data
+  * Enhance the app to be able to manupulate the data
