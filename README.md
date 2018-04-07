@@ -1,7 +1,7 @@
 # Reading from MongoDB database
 
 ## What is this?
-This is a tutorial and an example app which reads data from a MongoDB database. The app is using MongoDB, Express.js and Node.js
+This is a tutorial and an example app which reads data from a MongoDB database. The app is using MongoDB, Express.js and Node.js.
 I'm using Apple macOS High Sierra `10.13.4 (17E199)`, Node.js `v9.10.1`, npm `5.6.0`. 
 
 ### Technologies and frameworks
