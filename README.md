@@ -23,6 +23,7 @@ mv mongodb-osx-ssl-x86_64-3.6.3 mongodb
 ```
 
 MongoDB (`mongod`) defaults the database location to `/data/db/`.
+
 Let's create this directory, and change its owner (`id -un` gets the username):
 
 ```
