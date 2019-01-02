@@ -4,6 +4,8 @@
 This is a tutorial and an example app which reads data from a MongoDB database. The app is using MongoDB, Express.js and Node.js.
 I'm using Apple macOS High Sierra `10.13.4 (17E199)`, Node.js `v9.10.1`, npm `5.6.0`. 
 
+This tutorial can be viewed on Medium as well, on [The Coding Hype](https://medium.com/thecodinghype/https-medium-com-thecodinghype-reading-from-mongodb-database-using-express-js-and-node-js-250ef8b9282a)
+
 ### Technologies and frameworks
 MongoDB is a free and open-source cross-platform document-oriented NoSQL database program, which uses JSON-like documents with schemas.
 Express.js is a minimalist web application framework or Node.js.
